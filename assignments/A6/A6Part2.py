@@ -114,10 +114,6 @@ def segmentStableNotesRegions(inputFile='../../sounds/sax-phrase-short.wav', std
     # 3. apply threshold on standard deviation values to find indexes of the stable points in melody
     f0std[f0std < stdThsld] = -9999999
 
-    with np.printoptions(threshold=np.inf):
-        source = open('f0std.txt', 'w')
-        print(f0std, file=source)
-
     # 4. create segments of continuous stable points such that consecutive stable points belong to same segment
     # 5. apply segment filtering, i.e. remove segments with are < minNoteDur in length
     segg = []
